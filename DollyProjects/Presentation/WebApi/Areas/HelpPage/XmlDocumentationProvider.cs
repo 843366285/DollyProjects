@@ -1,9 +1,11 @@
 using System;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
+using System.Xml.Linq;
 using System.Xml.XPath;
 using WebApi.Areas.HelpPage.ModelDescriptions;
 
@@ -27,12 +29,34 @@ namespace WebApi.Areas.HelpPage
         /// <param name="documentPath">The physical path to XML document.</param>
         public XmlDocumentationProvider(string documentPath)
         {
-            if (documentPath == null)
+            //if (documentPath == null)
+            //{
+            //    throw new ArgumentNullException("documentPath");
+            //}
+            //XPathDocument xpath = new XPathDocument(documentPath);
+            //_documentNavigator = xpath.CreateNavigator();
+
+            XDocument finalDoc = null;
+            foreach (string file in Directory.GetFiles(documentPath, "Forzen.*.xml"))
             {
-                throw new ArgumentNullException("documentPath");
+                using (var fileStream = File.OpenRead(file))
+                {
+                    if (finalDoc == null)
+                    {
+                        finalDoc = XDocument.Load(fileStream);
+                    }
+                    else
+                    {
+                        XDocument xdocAdditional = XDocument.Load(fileStream);
+
+                        finalDoc.Root.XPathSelectElement("/doc/members")
+                            .Add(xdocAdditional.Root.XPathSelectElement("/doc/members").Elements());
+                    }
+                }
             }
-            XPathDocument xpath = new XPathDocument(documentPath);
-            _documentNavigator = xpath.CreateNavigator();
+
+            // Supply the navigator that rest of the XmlDocumentationProvider code looks for
+            _documentNavigator = finalDoc.CreateNavigator();
         }
 
         public string GetDocumentation(HttpControllerDescriptor controllerDescriptor)
