@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{EEDF7CD7-92A2-46BD-A76B-E0AFF9BA7D0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{EFE4ED8F-9C46-4A00-8ADF-6F1D3A8C228C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{275244EC-C101-437B-A359-7C3FDA679C11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "Presentation\WebApi\WebApi.csproj", "{B0428A79-C15C-4B34-B232-88E6F8046BEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Tests", "WebApi.Tests\WebApi.Tests.csproj", "{69F82C50-68F7-4699-914D-ECCFC4799126}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0428A79-C15C-4B34-B232-88E6F8046BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0428A79-C15C-4B34-B232-88E6F8046BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0428A79-C15C-4B34-B232-88E6F8046BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0428A79-C15C-4B34-B232-88E6F8046BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F82C50-68F7-4699-914D-ECCFC4799126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F82C50-68F7-4699-914D-ECCFC4799126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F82C50-68F7-4699-914D-ECCFC4799126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F82C50-68F7-4699-914D-ECCFC4799126}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0428A79-C15C-4B34-B232-88E6F8046BEF} = {EEDF7CD7-92A2-46BD-A76B-E0AFF9BA7D0F}
+		{69F82C50-68F7-4699-914D-ECCFC4799126} = {275244EC-C101-437B-A359-7C3FDA679C11}
+	EndGlobalSection
+EndGlobal
